@@ -63,15 +63,15 @@ class EventModel
     // Set listener_deletion_callback to NULL.
     EventModel() : listener_deletion_callback(NULL) {}
 
-	/**
-	  * Queues the given event to be sent to all registered recipients.
+    /**
+      * Queues the given event to be sent to all registered recipients.
       * The method of delivery will vary depending on the underlying implementation.
-	  *
-	  * @param The event to send.
+      *
+      * @param The event to send.
       *
       * @return This default implementation simply returns MICROBIT_NOT_SUPPORTED.
-	  */
-	virtual int send(MicroBitEvent evt)
+      */
+    virtual int send(MicroBitEvent evt)
     {
         (void) evt;
         return MICROBIT_NOT_SUPPORTED;
@@ -116,21 +116,21 @@ class EventModel
         return NULL;
     }
 
-	/**
-	  * Define the default EventModel to use for events raised and consumed by the microbit-dal runtime.
+    /**
+      * Define the default EventModel to use for events raised and consumed by the microbit-dal runtime.
       * The default EventModel may be changed at any time.
       *
-	  * @param model A new instance of an EventModel to use as the default.
+      * @param model A new instance of an EventModel to use as the default.
       *
       * @return MICROBIT_OK on success.
-	  *
+      *
       * Example:
       * @code
       * MicroBitMessageBus b();
       * EventModel:setDefaultEventModel(b);
       * @endcode
-	  */
-	static int setDefaultEventModel(EventModel &model)
+      */
+    static int setDefaultEventModel(EventModel &model)
     {
         EventModel::defaultEventBus = &model;
         return MICROBIT_OK;
@@ -147,38 +147,38 @@ class EventModel
         return MICROBIT_OK;
     }
 
-	/**
-	  * Register a listener function.
+    /**
+      * Register a listener function.
       *
       * An EventModel implementing this interface may optionally choose to override this method,
       * if that EventModel supports asynchronous callbacks to user code, but there is no
       * requirement to do so.
       *
-	  * @param id The source of messages to listen for. Events sent from any other IDs will be filtered.
-	  * Use MICROBIT_ID_ANY to receive events from all components.
-	  *
-	  * @param value The value of messages to listen for. Events with any other values will be filtered.
-	  * Use MICROBIT_EVT_ANY to receive events of any value.
-	  *
-	  * @param handler The function to call when an event is received.
+      * @param id The source of messages to listen for. Events sent from any other IDs will be filtered.
+      * Use MICROBIT_ID_ANY to receive events from all components.
+      *
+      * @param value The value of messages to listen for. Events with any other values will be filtered.
+      * Use MICROBIT_EVT_ANY to receive events of any value.
+      *
+      * @param handler The function to call when an event is received.
       *
       * @param flags User specified, implementation specific flags, that allow behaviour of this events listener
       * to be tuned.
       *
       * @return MICROBIT_OK on success, or any valid error code defined in "ErrNo.h". The default implementation
       * simply returns MICROBIT_NOT_SUPPORTED.
-	  *
+      *
       * @code
       * void onButtonBClicked(MicroBitEvent)
       * {
-      * 	//do something
+      *     //do something
       * }
       *
       * // call onButtonBClicked when ever a click event from buttonB is detected.
       * uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonBClick);
       * @endcode
-	  */
-	int listen(int id, int value, void (*handler)(MicroBitEvent), uint16_t flags = EVENT_LISTENER_DEFAULT_FLAGS)
+      */
+    int listen(int id, int value, void (*handler)(MicroBitEvent), uint16_t flags = EVENT_LISTENER_DEFAULT_FLAGS)
     {
         if (handler == NULL)
             return MICROBIT_INVALID_PARAMETER;
@@ -194,19 +194,19 @@ class EventModel
     }
 
     /**
-	  * Register a listener function.
+      * Register a listener function.
       *
       * An EventModel implementing this interface may optionally choose to override this method,
       * if that EventModel supports asynchronous callbacks to user code, but there is no
       * requirement to do so.
       *
-	  * @param id The source of messages to listen for. Events sent from any other IDs will be filtered.
-	  * Use MICROBIT_ID_ANY to receive events from all components.
-	  *
-	  * @param value The value of messages to listen for. Events with any other values will be filtered.
-	  * Use MICROBIT_EVT_ANY to receive events of any value.
-	  *
-	  * @param handler The function to call when an event is received.
+      * @param id The source of messages to listen for. Events sent from any other IDs will be filtered.
+      * Use MICROBIT_ID_ANY to receive events from all components.
+      *
+      * @param value The value of messages to listen for. Events with any other values will be filtered.
+      * Use MICROBIT_EVT_ANY to receive events of any value.
+      *
+      * @param handler The function to call when an event is received.
       *
       * @param arg Provide the callback with in an additional argument.
       *
@@ -215,17 +215,17 @@ class EventModel
       *
       * @return MICROBIT_OK on success, or any valid error code defined in "ErrNo.h". The default implementation
       * simply returns MICROBIT_NOT_SUPPORTED.
-	  *
+      *
       * @code
       * void onButtonBClicked(MicroBitEvent, void* data)
       * {
-      * 	//do something
+      *     //do something
       * }
       *
       * // call onButtonBClicked when ever a click event from buttonB is detected.
       * uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonBClick);
       * @endcode
-	  */
+      */
     int listen(int id, int value, void (*handler)(MicroBitEvent, void*), void* arg, uint16_t flags = EVENT_LISTENER_DEFAULT_FLAGS)
     {
         if (handler == NULL)
@@ -241,16 +241,16 @@ class EventModel
         return MICROBIT_NOT_SUPPORTED;
     }
 
-	/**
-	  * Register a listener function.
-	  *
-	  * @param id The source of messages to listen for. Events sent from any other IDs will be filtered.
-	  * Use MICROBIT_ID_ANY to receive events from all components.
-	  *
-	  * @param value The value of messages to listen for. Events with any other values will be filtered.
-	  * Use MICROBIT_EVT_ANY to receive events of any value.
-	  *
-	  * @param hander The function to call when an event is received.
+    /**
+      * Register a listener function.
+      *
+      * @param id The source of messages to listen for. Events sent from any other IDs will be filtered.
+      * Use MICROBIT_ID_ANY to receive events from all components.
+      *
+      * @param value The value of messages to listen for. Events with any other values will be filtered.
+      * Use MICROBIT_EVT_ANY to receive events of any value.
+      *
+      * @param hander The function to call when an event is received.
       *
       * @param flags User specified, implementation specific flags, that allow behaviour of this events listener
       * to be tuned.
@@ -261,34 +261,34 @@ class EventModel
       * @code
       * void SomeClass::onButtonBClicked(MicroBitEvent)
       * {
-      * 	//do something
+      *     //do something
       * }
       *
       * SomeClass s = new SomeClass();
       *
       * uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, s, &SomeClass::onButtonBClick);
       * @endcode
-	  */
+      */
     template <typename T>
-	int listen(uint16_t id, uint16_t value, T* object, void (T::*handler)(MicroBitEvent), uint16_t flags = EVENT_LISTENER_DEFAULT_FLAGS);
+    int listen(uint16_t id, uint16_t value, T* object, void (T::*handler)(MicroBitEvent), uint16_t flags = EVENT_LISTENER_DEFAULT_FLAGS);
 
 
-	/**
-	  * Unregister a listener function.
+    /**
+      * Unregister a listener function.
       * Listeners are identified by the Event ID, Event value and handler registered using listen().
-	  *
-	  * @param id The Event ID used to register the listener.
-	  * @param value The Event value used to register the listener.
-	  * @param handler The function used to register the listener.
+      *
+      * @param id The Event ID used to register the listener.
+      * @param value The Event value used to register the listener.
+      * @param handler The function used to register the listener.
       *
       * @return MICROBIT_OK on success or MICROBIT_INVALID_PARAMETER if the handler
       *         given is NULL.
-	  *
+      *
       * Example:
       * @code
       * void onButtonBClick(MicroBitEvent)
       * {
-      * 	//do something
+      *     //do something
       * }
       *
       * uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonBClick);
@@ -296,8 +296,8 @@ class EventModel
       * // the previously created listener is now ignored.
       * uBit.messageBus.ignore(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonBClick);
       * @endcode
-	  */
-	int ignore(int id, int value, void (*handler)(MicroBitEvent))
+      */
+    int ignore(int id, int value, void (*handler)(MicroBitEvent))
     {
         if (handler == NULL)
             return MICROBIT_INVALID_PARAMETER;
@@ -309,23 +309,23 @@ class EventModel
     }
 
     /**
-	  * Unregister a listener function.
+      * Unregister a listener function.
       * Listeners are identified by the Event ID, Event value and handler registered using listen().
-	  *
-	  * @param id The Event ID used to register the listener.
-	  * @param value The Event value used to register the listener.
-	  * @param handler The function used to register the listener.
+      *
+      * @param id The Event ID used to register the listener.
+      * @param value The Event value used to register the listener.
+      * @param handler The function used to register the listener.
       * @param arg the arg that is passed to the handler on an event. Used to differentiate between handlers with the same id and source, but not the same arg.
       *            Defaults to NULL, which means any handler with the same id, event and callback is removed.
       *
       * @return MICROBIT_OK on success or MICROBIT_INVALID_PARAMETER if the handler
       *         given is NULL.
-	  *
+      *
       * Example:
       * @code
       * void onButtonBClick(MicroBitEvent, void* data)
       * {
-      * 	//do something
+      *     //do something
       * }
       *
       * uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonBClick);
@@ -333,8 +333,8 @@ class EventModel
       * // the previously created listener is now ignored.
       * uBit.messageBus.ignore(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonBClick);
       * @endcode
-	  */
-	int ignore(int id, int value, void (*handler)(MicroBitEvent, void*), void* arg = NULL)
+      */
+    int ignore(int id, int value, void (*handler)(MicroBitEvent, void*), void* arg = NULL)
     {
         if (handler == NULL)
             return MICROBIT_INVALID_PARAMETER;
@@ -345,23 +345,23 @@ class EventModel
         return MICROBIT_OK;
     }
 
-	/**
-	  * Unregister a listener function.
+    /**
+      * Unregister a listener function.
       * Listners are identified by the Event ID, Event value and handler registered using listen().
-	  *
-	  * @param id The Event ID used to register the listener.
-	  * @param value The Event value used to register the listener.
-	  * @param handler The function used to register the listener.
+      *
+      * @param id The Event ID used to register the listener.
+      * @param value The Event value used to register the listener.
+      * @param handler The function used to register the listener.
       *
       * @return MICROBIT_OK on success or MICROBIT_INVALID_PARAMETER if the handler or object
       *         pointers are NULL.
-	  *
+      *
       * Example:
       * @code
       *
       * void SomeClass::onButtonBClick()
       * {
-      * 	//do something
+      *     //do something
       * }
       *
       * SomeClass s = new SomeClass();
@@ -370,9 +370,9 @@ class EventModel
       * // the previously created listener is now ignored.
       * uBit.messageBus.ignore(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, s, &SomeClass::onButtonBClick);
       * @endcode
-	  */
+      */
     template <typename T>
-	int ignore(uint16_t id, uint16_t value, T* object, void (T::*handler)(MicroBitEvent));
+    int ignore(uint16_t id, uint16_t value, T* object, void (T::*handler)(MicroBitEvent));
 
 };
 
@@ -396,10 +396,10 @@ class EventModel
 template <typename T>
 int EventModel::listen(uint16_t id, uint16_t value, T* object, void (T::*handler)(MicroBitEvent), uint16_t flags)
 {
-	if (object == NULL || handler == NULL)
-		return MICROBIT_INVALID_PARAMETER;
+    if (object == NULL || handler == NULL)
+        return MICROBIT_INVALID_PARAMETER;
 
-	MicroBitListener *newListener = new MicroBitListener(id, value, object, handler, flags);
+    MicroBitListener *newListener = new MicroBitListener(id, value, object, handler, flags);
 
     if(add(newListener) == MICROBIT_OK)
         return MICROBIT_OK;
@@ -424,7 +424,7 @@ int EventModel::listen(uint16_t id, uint16_t value, T* object, void (T::*handler
   *
   * void SomeClass::onButtonBClick()
   * {
-  * 	//do something
+  *     //do something
   * }
   *
   * SomeClass s = new SomeClass();
@@ -437,10 +437,10 @@ int EventModel::listen(uint16_t id, uint16_t value, T* object, void (T::*handler
 template <typename T>
 int EventModel::ignore(uint16_t id, uint16_t value, T* object, void (T::*handler)(MicroBitEvent))
 {
-	if (handler == NULL)
-		return MICROBIT_INVALID_PARAMETER;
+    if (handler == NULL)
+        return MICROBIT_INVALID_PARAMETER;
 
-	MicroBitListener listener(id, value, object, handler);
+    MicroBitListener listener(id, value, object, handler);
     remove(&listener);
 
     return MICROBIT_OK;

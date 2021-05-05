@@ -43,7 +43,7 @@ DEALINGS IN THE SOFTWARE.
 #include "EventModel.h"
 
 // Fiber Scheduler Flags
-#define MICROBIT_SCHEDULER_RUNNING	     	0x01
+#define MICROBIT_SCHEDULER_RUNNING          0x01
 
 // Fiber Flags
 #define MICROBIT_FIBER_FLAG_FOB             0x01

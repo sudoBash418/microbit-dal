@@ -88,7 +88,7 @@ class MicroBitEventService : public MicroBitComponent
 
     // Bluetooth stack we're running on.
     BLEDevice           &ble;
-	EventModel	        &messageBus;
+    EventModel          &messageBus;
 
     // memory for our event characteristics.
     EventServiceEvent   clientEventBuffer;

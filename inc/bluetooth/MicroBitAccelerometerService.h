@@ -67,8 +67,8 @@ class MicroBitAccelerometerService
     void accelerometerUpdate(MicroBitEvent e);
 
     // Bluetooth stack we're running on.
-    BLEDevice           	&ble;
-	MicroBitAccelerometer	&accelerometer;
+    BLEDevice             &ble;
+    MicroBitAccelerometer &accelerometer;
 
     // memory for our 8 bit control characteristics.
     uint16_t            accelerometerDataCharacteristicBuffer[3];

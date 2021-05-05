@@ -66,7 +66,7 @@ class MicroBitTemperatureService
     private:
 
     // Bluetooth stack we're running on.
-    BLEDevice           	&ble;
+    BLEDevice               &ble;
     MicroBitThermometer     &thermometer;
 
     // memory for our 8 bit temperature characteristic.

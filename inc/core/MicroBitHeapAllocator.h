@@ -57,13 +57,13 @@ DEALINGS IN THE SOFTWARE.
 #define MICROBIT_MAXIMUM_HEAPS          2
 
 // Flag to indicate that a given block is FREE/USED (top bit of a CPU word)
-#define MICROBIT_HEAP_BLOCK_FREE		0x80000000
+#define MICROBIT_HEAP_BLOCK_FREE        0x80000000
 #define MICROBIT_HEAP_BLOCK_SIZE        4
 
 struct HeapDefinition
 {
-    uint32_t *heap_start;		// Physical address of the start of this heap.
-    uint32_t *heap_end;		    // Physical address of the end of this heap.
+    uint32_t *heap_start;       // Physical address of the start of this heap.
+    uint32_t *heap_end;         // Physical address of the end of this heap.
 };
 
 /**

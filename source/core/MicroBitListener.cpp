@@ -47,12 +47,12 @@ DEALINGS IN THE SOFTWARE.
   */
 MicroBitListener::MicroBitListener(uint16_t id, uint16_t value, void (*handler)(MicroBitEvent), uint16_t flags)
 {
-	this->id = id;
-	this->value = value;
-	this->cb = handler;
-	this->cb_arg = NULL;
+    this->id = id;
+    this->value = value;
+    this->cb = handler;
+    this->cb_arg = NULL;
     this->flags = flags;
-	this->next = NULL;
+    this->next = NULL;
     this->evt_queue = NULL;
 }
 
@@ -75,12 +75,12 @@ MicroBitListener::MicroBitListener(uint16_t id, uint16_t value, void (*handler)(
   */
 MicroBitListener::MicroBitListener(uint16_t id, uint16_t value, void (*handler)(MicroBitEvent, void *), void* arg, uint16_t flags)
 {
-	this->id = id;
-	this->value = value;
-	this->cb_param = handler;
-	this->cb_arg = arg;
+    this->id = id;
+    this->value = value;
+    this->cb_param = handler;
+    this->cb_arg = arg;
     this->flags = flags | MESSAGE_BUS_LISTENER_PARAMETERISED;
-	this->next = NULL;
+    this->next = NULL;
     this->evt_queue = NULL;
 }
 

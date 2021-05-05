@@ -51,27 +51,27 @@ DEALINGS IN THE SOFTWARE.
 /**
   * LSM303_M Register map
   */
-#define LSM303_OFFSET_X_REG_L_M			0x45
-#define LSM303_OFFSET_X_REG_H_M			0x46
-#define LSM303_OFFSET_Y_REG_L_M			0x47
-#define LSM303_OFFSET_Y_REG_H_M			0x48
-#define LSM303_OFFSET_Z_REG_L_M			0x49
-#define LSM303_OFFSET_Z_REG_H_M			0x4A
-#define LSM303_WHO_AM_I_M				0x4F
-#define LSM303_CFG_REG_A_M				0x60
-#define LSM303_CFG_REG_B_M				0x61
-#define LSM303_CFG_REG_C_M				0x62
-#define LSM303_INT_CRTL_REG_M			0x63
-#define LSM303_INT_SOURCE_REG_M			0x64
-#define LSM303_INT_THS_L_REG_M			0x65
-#define LSM303_INT_THS_H_REG_M			0x66
-#define LSM303_STATUS_REG_M				0x67
-#define LSM303_OUTX_L_REG_M				0x68
-#define LSM303_OUTX_H_REG_M				0x69
-#define LSM303_OUTY_L_REG_M				0x6A
-#define LSM303_OUTY_H_REG_M				0x6B
-#define LSM303_OUTZ_L_REG_M				0x6C
-#define LSM303_OUTZ_H_REG_M				0x6D
+#define LSM303_OFFSET_X_REG_L_M         0x45
+#define LSM303_OFFSET_X_REG_H_M         0x46
+#define LSM303_OFFSET_Y_REG_L_M         0x47
+#define LSM303_OFFSET_Y_REG_H_M         0x48
+#define LSM303_OFFSET_Z_REG_L_M         0x49
+#define LSM303_OFFSET_Z_REG_H_M         0x4A
+#define LSM303_WHO_AM_I_M               0x4F
+#define LSM303_CFG_REG_A_M              0x60
+#define LSM303_CFG_REG_B_M              0x61
+#define LSM303_CFG_REG_C_M              0x62
+#define LSM303_INT_CRTL_REG_M           0x63
+#define LSM303_INT_SOURCE_REG_M         0x64
+#define LSM303_INT_THS_L_REG_M          0x65
+#define LSM303_INT_THS_H_REG_M          0x66
+#define LSM303_STATUS_REG_M             0x67
+#define LSM303_OUTX_L_REG_M             0x68
+#define LSM303_OUTX_H_REG_M             0x69
+#define LSM303_OUTY_L_REG_M             0x6A
+#define LSM303_OUTY_H_REG_M             0x6B
+#define LSM303_OUTZ_L_REG_M             0x6C
+#define LSM303_OUTZ_H_REG_M             0x6D
 
 
 

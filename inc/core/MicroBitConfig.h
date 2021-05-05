@@ -87,7 +87,7 @@ DEALINGS IN THE SOFTWARE.
 
 // Defines where in memory persistent data is stored.
 #ifndef KEY_VALUE_STORE_PAGE
-#define KEY_VALUE_STORE_PAGE	                (PAGE_SIZE * (NRF_FICR->CODESIZE - 17)) 
+#define KEY_VALUE_STORE_PAGE                    (PAGE_SIZE * (NRF_FICR->CODESIZE - 17)) 
 #endif
 
 #ifndef BLE_BOND_DATA_PAGE 
@@ -96,7 +96,7 @@ DEALINGS IN THE SOFTWARE.
 
 // MicroBitFileSystem uses DEFAULT_SCRATCH_PAGE to mark end of FileSystem
 #ifndef DEFAULT_SCRATCH_PAGE
-#define DEFAULT_SCRATCH_PAGE	                (PAGE_SIZE * (NRF_FICR->CODESIZE - 19))
+#define DEFAULT_SCRATCH_PAGE                    (PAGE_SIZE * (NRF_FICR->CODESIZE - 19))
 #endif
 
 // Address of the end of the current program in FLASH memory.
@@ -424,7 +424,7 @@ extern uint32_t __etext;
 // Must be a factor of the physical PAGE_SIZE (ideally a power of two less).
 //
 #ifndef MBFS_BLOCK_SIZE
-#define MBFS_BLOCK_SIZE		256
+#define MBFS_BLOCK_SIZE     256
 #endif
 
 //
@@ -433,7 +433,7 @@ extern uint32_t __etext;
 // Should be <= MBFS_BLOCK_SIZE.
 //
 #ifndef MBFS_CACHE_SIZE
-#define MBFS_CACHE_SIZE	    0   
+#define MBFS_CACHE_SIZE     0   
 #endif
 
 //

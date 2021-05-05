@@ -80,7 +80,7 @@ class MicroBitFlash
       * (using need_erase).
       * 
       * @param page_address address of memory to write to. 
-      * 	Must be word aligned.
+      *     Must be word aligned.
       * @param buffer address to write from, must be word-aligned.
       * @param len number of uint32_t words to write.
       */

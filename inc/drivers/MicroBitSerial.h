@@ -45,8 +45,8 @@ DEALINGS IN THE SOFTWARE.
 enum MicroBitSerialMode
 {
     ASYNC,
-	SYNC_SPINWAIT,
-	SYNC_SLEEP
+    SYNC_SPINWAIT,
+    SYNC_SLEEP
 };
 
 /**

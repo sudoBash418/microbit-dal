@@ -61,24 +61,24 @@ class MicroBitMessageBus : public EventModel, public MicroBitComponent
 {
     public:
 
-	/**
-	  * Default constructor.
+    /**
+      * Default constructor.
       *
       * Adds itself as a fiber component, and also configures itself to be the
       * default EventModel if defaultEventBus is NULL.
-	  */
+      */
     MicroBitMessageBus();
 
-	/**
-	  * Queues the given event to be sent to all registered recipients.
-	  *
-	  * @param evt The event to send.
+    /**
+      * Queues the given event to be sent to all registered recipients.
+      *
+      * @param evt The event to send.
       *
       * @code
       * MicroBitMessageBus bus;
       *
       * // Creates and sends the MicroBitEvent using bus.
-	  * MicrobitEvent evt(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK);
+      * MicrobitEvent evt(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK);
       *
       * // Creates the MicrobitEvent, but delays the sending of that event.
       * MicrobitEvent evt1(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, CREATE_ONLY);
@@ -88,14 +88,14 @@ class MicroBitMessageBus : public EventModel, public MicroBitComponent
       * // This has the same effect!
       * evt1.fire()
       * @endcode
-	  */
-	virtual int send(MicroBitEvent evt);
+      */
+    virtual int send(MicroBitEvent evt);
 
-	/**
+    /**
       * Internal function, used to deliver the given event to all relevant recipients.
       * Normally, this is called once an event has been removed from the event queue.
-	  *
-	  * @param evt The event to send.
+      *
+      * @param evt The event to send.
       *
       * @param urgent The type of listeners to process (optional). If set to true, only listeners defined as urgent and non-blocking will be processed
       *               otherwise, all other (standard) listeners will be processed. Defaults to false.
@@ -105,7 +105,7 @@ class MicroBitMessageBus : public EventModel, public MicroBitComponent
       * @note It is recommended that all external code uses the send() function instead of this function,
       *       or the constructors provided by MicrobitEvent.
       */
-	int process(MicroBitEvent &evt, bool urgent = false);
+    int process(MicroBitEvent &evt, bool urgent = false);
 
     /**
       * Returns the microBitListener with the given position in our list.
@@ -139,9 +139,9 @@ class MicroBitMessageBus : public EventModel, public MicroBitComponent
       */
     virtual int remove(MicroBitListener *newListener);
 
-	private:
+    private:
 
-    MicroBitListener            *listeners;		    // Chain of active listeners.
+    MicroBitListener            *listeners;         // Chain of active listeners.
     MicroBitEventQueueItem      *evt_queue_head;    // Head of queued events to be processed.
     MicroBitEventQueueItem      *evt_queue_tail;    // Tail of queued events to be processed.
     uint16_t                    nonce_val;          // The last nonce issued.

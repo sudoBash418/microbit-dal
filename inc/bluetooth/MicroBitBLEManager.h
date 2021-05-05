@@ -193,31 +193,31 @@ class MicroBitBLEManager : MicroBitComponent
     int getBondCount();
 
     /**
-	 * A request to pair has been received from a BLE device.
+     * A request to pair has been received from a BLE device.
      * If we're in pairing mode, display the passkey to the user.
      * Also, purge the bonding table if it has reached capacity.
      *
      * @note for internal use only.
-	 */
+     */
     void pairingRequested(ManagedString passKey);
 
     /**
-	 * A pairing request has been sucessfully completed.
-	 * If we're in pairing mode, display a success or failure message.
+     * A pairing request has been sucessfully completed.
+     * If we're in pairing mode, display a success or failure message.
      *
      * @note for internal use only.
-	 */
+     */
     void pairingComplete(bool success);
 
     /**
      * Periodic callback in thread context.
      * We use this here purely to safely issue a disconnect operation after a pairing operation is complete.
-	 */
+     */
     void idleTick();
 
     /**
-	* Stops any currently running BLE advertisements
-	*/
+    * Stops any currently running BLE advertisements
+    */
     void stopAdvertising();
 
     /**
@@ -297,10 +297,10 @@ class MicroBitBLEManager : MicroBitComponent
 
   private:
     /**
-	* Displays the device's ID code as a histogram on the provided MicroBitDisplay instance.
+    * Displays the device's ID code as a histogram on the provided MicroBitDisplay instance.
     *
     * @param display The display instance used for displaying the histogram.
-	*/
+    */
     void showNameHistogram(MicroBitDisplay &display);
 
 

@@ -78,7 +78,7 @@ DEALINGS IN THE SOFTWARE.
 #define MICROBIT_ID_NOTIFY                          1023          // Notfication channel, for general purpose synchronisation
 
 // Universal flags used as part of the status field
-#define MICROBIT_COMPONENT_RUNNING		0x01
+#define MICROBIT_COMPONENT_RUNNING      0x01
 
 
 /**

@@ -596,7 +596,7 @@ public:
 
     /**
       * Updates the font that will be used for display operations.
-	  *
+      *
       * @param font the new font that will be used to render characters.
       *
       * @note DEPRECATED! Please use MicroBitFont::setSystemFont() instead.
@@ -605,7 +605,7 @@ public:
 
     /**
       * Retrieves the font object used for rendering characters on the display.
-	  *
+      *
       * @note DEPRECATED! Please use MicroBitFont::getSystemFont() instead.
       */
     MicroBitFont getFont();
