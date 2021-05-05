@@ -113,8 +113,10 @@ target_link_libraries(microbit-dal
 
 if(CMAKE_COMPILER_IS_GNUCC)
     message("suppressing ALL warnings from mbed-classic, ble, ble-nrf51822 & nrf51-sdk")
-    target_compile_options(mbed-classic PRIVATE "-w")
+    target_compile_options(mbed-classic PUBLIC "-w")
     target_compile_options(ble PRIVATE "-w")
     target_compile_options(ble-nrf51822 PRIVATE "-w")
     target_compile_options(nrf51-sdk PRIVATE "-w")
+    message("suppressing some warnings from microbit-dal")
+    target_compile_options(microbit-dal PRIVATE "-Wno-register" "-Wno-class-memaccess" "-Wno-deprecated-copy")
 endif()
