@@ -168,11 +168,13 @@ class MicroBitPin : public MicroBitComponent
       * @param capability the capabilities this MicroBitPin instance should have.
       *                   (PIN_CAPABILITY_DIGITAL, PIN_CAPABILITY_ANALOG, PIN_CAPABILITY_AD, PIN_CAPABILITY_ALL)
       *
+      * @param pullMode the initial pull mode for the pin.
+      *
       * @code
       * MicroBitPin P0(MICROBIT_ID_IO_P0, MICROBIT_PIN_P0, PIN_CAPABILITY_ALL);
       * @endcode
       */
-    MicroBitPin(int id, PinName name, PinCapability capability);
+    MicroBitPin(int id, PinName name, PinCapability capability, PinMode pullMode = MICROBIT_DEFAULT_PULLMODE);
 
     /**
       * Configures this IO pin as a digital output (if necessary) and sets the pin to 'value'.

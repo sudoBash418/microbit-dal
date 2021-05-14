@@ -47,17 +47,19 @@ DEALINGS IN THE SOFTWARE.
   * @param capability the capabilities this MicroBitPin instance should have.
   *                   (PIN_CAPABILITY_DIGITAL, PIN_CAPABILITY_ANALOG, PIN_CAPABILITY_AD, PIN_CAPABILITY_ALL)
   *
+  * @param pullMode the initial pull mode for the pin.
+  *
   * @code
   * MicroBitPin P0(MICROBIT_ID_IO_P0, MICROBIT_PIN_P0, PIN_CAPABILITY_ALL);
   * @endcode
   */
-MicroBitPin::MicroBitPin(int id, PinName name, PinCapability capability)
+MicroBitPin::MicroBitPin(int id, PinName name, PinCapability capability, PinMode pullMode)
 {
     //set mandatory attributes
     this->id = id;
     this->name = name;
     this->capability = capability;
-    this->pullMode = MICROBIT_DEFAULT_PULLMODE;
+    this->pullMode = pullMode;
 
     // Power up in a disconnected, low power state.
     // If we're unused, this is how it will stay...
