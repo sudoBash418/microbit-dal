@@ -68,10 +68,15 @@ MicroBitPin::MicroBitPin(int id, PinName name, PinCapability capability, PinMode
 
 }
 
+MicroBitPin::~MicroBitPin()
+{
+    this->disconnect();
+};
+
 /**
   * Disconnect any attached mBed IO from this pin.
   *
-  * Used only when pin changes mode (i.e. Input/Output/Analog/Digital)
+  * Used only when pin changes mode (i.e. Input/Output/Analog/Digital) and upon deconstruction.
   */
 void MicroBitPin::disconnect()
 {

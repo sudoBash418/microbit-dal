@@ -176,6 +176,8 @@ class MicroBitPin : public MicroBitComponent
       */
     MicroBitPin(int id, PinName name, PinCapability capability, PinMode pullMode = MICROBIT_DEFAULT_PULLMODE);
 
+    ~MicroBitPin();
+
     /**
       * Configures this IO pin as a digital output (if necessary) and sets the pin to 'value'.
       *
